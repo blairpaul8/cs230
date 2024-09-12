@@ -1,3 +1,8 @@
+#Lab2 Functions
+#Name: Paul Blair
+#Description: This assembly program is for the function get_rand that takes in two arguments
+#			  int minimum and int maximum and returns a random number.
+
 .section .text 
 .global get_rand
 
