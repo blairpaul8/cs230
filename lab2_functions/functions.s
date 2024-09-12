@@ -31,7 +31,8 @@ get_rand:
 	mv s1, a1
 
 	call rand
-
+	
+	#doing the operations of the function. mn + rand() % (mx - mn + 1)
 	sub t0, s1, s0
 	add t0, t0, 1
 	rem t1, a0, t0
