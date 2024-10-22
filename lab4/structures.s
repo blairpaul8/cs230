@@ -2,17 +2,15 @@
 .global make_triangle
 
 make_triangle:
-	
+	# allocate space on the stack for saved registers
 	addi sp, sp, -48
 	
-	# I may not need all of these saved registers just freeing some up to start
+	# store saved registers to the stack
 	sd ra, 0(sp)
 	sd s0, 8(sp)
-	sd s1, 16(sp)
-	fsd fs0, 24(sp)
-	fsd fs1, 32(sp)
-	fsd fs2, 40(sp) 
-	fsd fs3, 48(sp)
+	fsd fs0, 16(sp)
+	fsd fs1, 24(sp)
+	fsd fs2, 32(sp) 
 
 	mv s0, a0     # moving the return struct in s0
 	fmv.s fs0, fa0   # putting the first argument of make_triangle in fs0
@@ -44,11 +42,9 @@ make_triangle:
 	#put all the saved registers back
 	ld ra, 0(sp)
 	ld s0, 8(sp)
-	ld s1, 16(sp)
-	fld fs0, 24(sp)
-	fld fs1, 32(sp)
-	fld fs2, 40(sp)
-	fld fs3, 48(sp)
+	fld fs0, 16(sp)
+	fld fs1, 24(sp)
+	fld fs2, 32(sp)
 
 	addi sp, sp, 48
 
