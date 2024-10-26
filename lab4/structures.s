@@ -2,7 +2,7 @@
   # Net ID: VBQ669
   # Description: This program is the make_triangle function that takes in
   #              two sides of a triangle and calculates the hypotenuse and
-  #              two of the angles of the triangle.
+  #              the angles of the triangle.
 .section .text
 .global make_triangle
 
