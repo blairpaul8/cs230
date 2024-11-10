@@ -42,7 +42,8 @@ look_at_room:
 	lw s2, 4(t0)
 	lw s3, 8(t0)
 	lw s4, 12(t0) 
-
+  
+  # If statements for look_at_room function
 	beq s1, s5, 1f
 	la a0, north
 	call printf
