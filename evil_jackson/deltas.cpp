@@ -36,3 +36,22 @@ int CalculateAllDeltas(Observation *observations, size_t observations_len,
   *highest_observation = highest;
   return total;
 }
+
+int main() {
+  Observation observations[5] = {{5, 1, 1, 1, 100},
+                                 {4, 2, 2, 2, 110},
+                                 {
+                                     3,
+                                     3,
+                                     3,
+                                     3,
+                                     115,
+                                 },
+                                 {2, 4, 4, 4, 120},
+                                 {1, 5, 5, 5, 127}};
+
+  int highest;
+  int res = CalculateAllDeltas(observations, 5, &highest);
+
+  std::cout << "res: " << res << " highest: " << highest << std::endl;
+}
