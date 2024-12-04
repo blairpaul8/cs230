@@ -26,11 +26,11 @@ int CalculateAllDeltas(Observation *observations, size_t observations_len,
 
     int final_observation = int(floor(delta));
 
-    if (final_observation < highest) {
+    if (final_observation > highest) {
       highest = final_observation;
     }
 
-    total = delta;
+    total += delta;
   }
 
   *highest_observation = highest;
