@@ -1,0 +1,79 @@
+- Integer Instructions
+
+Instruction	     Type	  Description
+addi rd, rs1, imm	 I   rd = rs1 + imm
+add rd, rs1, rs2	 R	 rd = rs1 + rs2
+sub rd, rs1, rs2	 R	 rd = rs1 – rs2
+mul rd, rs1, rs2	 R	 rd = rs1 * rs2
+div rd, rs1, rs2	 R	 rd = rs1 / rs2
+rem rd, rs1, rs2	 R	 rd = rs1 % rs2
+
+- Logic Instructions
+
+Instruction	      Type	 Description
+and rd, rs1, rs2	 R	 rd = rs1 & rs2
+andi rd, rs1, imm	 I	 rd = rs1 & imm
+or rd, rs1, rs2	   R	 rd = rs1 | rs2
+ori rd, rs1, imm	 I	 rd = rs1 | imm
+xor rd, rs1, rs2	 R	 rd = rs1 ^ rs2
+xori rd, rs1, imm	 I	 rd = rs1 ^ imm
+sll rd, rs1, rs2	 R	 rd = rs1 << rs2
+slli rd, rs1, imm	 I	 rd = rs1 << imm
+sra rd, rs1, rs2	 R	 rd = (signed)rs1 >> rs2
+srai rd, rs1, imm	 I	 rd = (signed)rs1 >> imm
+srl rd, rs1, rs2	 R	 rd = (unsigned)rs1 >> rs2
+srli rd, rs1 imm	 I	 rd = (unsigned)rs1 >> imm
+
+- Branch Instructions
+
+Instruction	         Type	   Description
+beq rs1, rs2, label	  B	  goto label if rs1 == rs2
+bne rs1, rs2, label	  B	  goto label if rs1 != rs2
+blt rs1, rs2, label	  B	  goto label if rs1 < rs2
+bge rs1, rs2, label	  B	  goto label if rs1 >= rs2
+bltu rs1, rs2, label	B	  goto label if rs1 < rs2 (unsigned)
+bgeu rs1, rs2, label	B	  goto label if rs1 >= rs2 (unsigned)
+
+- Jump Instructions
+
+Instruction	         Type	    Description
+jal rd, label	        J	 rd = pc + 4; pc = label
+jalr ra, offset(rs1)	I	 rd = pc + 4; pc = rs1 + sign_extend(offset)
+
+- Memory Instructions
+
+Instruction	       Type	      Description
+lb rd, offset(rs1)	I	  rd = (char) *(rs1 + offset)
+lbu rd, offset(rs1)	I	  rd = (unsigned char) *(rs1 + offset)
+lh rd, offset(rs1)	I	  rd = (short) *(rs1 + offset)
+lhu rd, offset(rs1)	I	  rd = (unsigned short) *(rs1 + offset)
+lw rd, offset(rs1)	I	  rd = (int) *(rs1 + offset)
+lwu rd, offset(rs1)	I	  rd = (unsigned int) *(rs1 + offset)
+ld rd, offset(rs1)	I	  rd = (long) *(rs1 + offset)
+sb rs2, offset(rs1)	S	  (char) *(rs1 + offset) = rs2
+sh rs2, offset(rs1)	S	  (short) *(rs1 + offset) = rs2
+sw rs2, offset(rs1)	S	  (int) *(rs1 + offset) = rs2
+sd rs2, offset(rs1)	S	  (long) *(rs1 + offset) = rs2
+
+- Floating Point Instructions
+
+ Instruction	                                    Description
+flw rd, offset(rs1)	                      rd = (float) *(rs1 + offset)
+fsw rs2, offset(rs1)	                    (float) *(rs1 + offset) = rs2
+fld rd, offset(rs1)	                      rd = (double) *(rs1 + offset)
+fsd rs2, offset(rs1)	                    (double) *(rs1 + offset) = rs2
+fadd.s or fadd.d rd, rs1, rs2	            rd = rs1 + rs2
+fsub.s or fsub.d rd, rs1, rs2	            rd = rs1 – rs2
+fmul.s or fmul.d rd, rs1, rs2	            rd = rs1 * rs2
+fdiv.s or fdiv.d rd, rs1, rs2	            rd = rs1 / rs2
+fsqrt.s or fsqrt.d rd, rs1	              rd = 
+fcvt.dest.src rd, rs1, [rounding]	        Converts rs1 into rd. [rounding] is an optional rounding mode. (see notes below)
+fmv.x.w or fmv.x.d rd, rs1	              Moves the value of a floating point register into an integer register. (see notes below)
+fmv.w.x or fmv.d.x rd, rs1	              Moves the value of an integer register into a floating point register. (see notes below)
+feq.s or feq.d rd, rs1, rs2	              rd = 1 if rs1 = rs2 or rd = 0 if rs1 != rs2
+flt.s or flt.d rd, rs1, rs2	              rd = 1 if rs1 < rs2 or rd = 0 if rs1 >= rs2
+fle.s or fle.d rd, rs1, rs2	              rd = 1 if rs1 <= rs2 or rd = 0 if rs1 > rs2
+fmadd.s or fmadd.d rd, rs1, rs2, rs3	    rd = (rs1 * rs2) + rs3
+fmsub.s or fmsub.d rd, rs1, rs2, rs3	    rd = (rs1 * rs2) – rs3
+fnmsub.s or fnmsub.d rd, rs1, rs2, rs3	  rd = -(rs1 * rs2) + rs3
+fnmadd.s or fnmadd.d rd, rs1, rs2, rs3	  rd = -(rs1 * rs2) – rs3
