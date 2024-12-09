@@ -1,0 +1,21 @@
+Name	ABI Mnemonic	Meaning	Preserved across calls?
+x0	zero	Zero	(Immutable)
+x1	ra	Return Address	No
+x2	sp	Stack Pointer	Yes
+x3	gp	Global Pointer	N/A
+x4	tp	Thread Pointer	N/A
+x5 – x7	t0 – t2	Temporary Registers	No
+x8 – x9	s0 [fp] – s1	Saved Registers	Yes
+x10 – x11	a0 – a1	Argument and Return Registers	No
+x12 – x17	a2 – a7	Argument Registers	No
+x18 – x27	s2 – s11	Saved Registers	Yes
+x28 – x31	t3 – t6	Temporary Registers	No
+
+Floating Point Registers
+
+f0 -f7	ft0 – ft7	Temporary Registers	No
+f8 – f9	fs0 – fs1	Saved Registers	Yes
+f10 – f11	fa0 – fa1	Argument and Return Registers	No
+f12 – f17	fa2 – fa7	Argument Registers	No
+f18 – f27	fs2 – fs11	Saved Registers	Yes
+f28 – f31	ft8 – ft11	Temporary Registers	No
