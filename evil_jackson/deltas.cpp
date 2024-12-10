@@ -16,9 +16,9 @@ int CalculateAllDeltas(Observation *observations, size_t observations_len,
                        int *highest_observation);
 }
 
-int CalculateAllDeltas(Observation *observations, size_t observations_len,
+/*int CalculateAllDeltas(Observation *observations, size_t observations_len,
                        int *highest_observation) {
-  int highest = INT32_MIN;
+  int highest = -1;
   int total = 0;
 
   for (size_t i = 0; i < observations_len; i++) {
@@ -30,12 +30,13 @@ int CalculateAllDeltas(Observation *observations, size_t observations_len,
       highest = final_observation;
     }
 
-    total += delta;
+    total += final_observation;
   }
 
   *highest_observation = highest;
   return total;
 }
+*/
 
 int main() {
   Observation observations[5] = {{5, 1, 1, 1, 100},
